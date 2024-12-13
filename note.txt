@@ -1,0 +1,11 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
+<i class='bx bxl-tiktok'></i>
+<i class='bx bxl-facebook'></i>
+<i class='bx bxl-instagram' ></i>
+<i class='bx bxl-whatsapp'></i>
+
+
+
+color codee : #081b29
