@@ -105,7 +105,7 @@ body{
     font-weight: 600;
 
 }
-.btn-box :hover{
+.btn-box:hover{
     box-shadow: 0 0 25px cyan,
     0 0 25px cyan, 0 0 50px cyan,
     0 0 100px cyan, 0 0 200px cyan
