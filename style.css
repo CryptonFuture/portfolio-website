@@ -106,9 +106,9 @@ body{
 
 }
 .btn-box:hover{
-    box-shadow: 0 0 25px cyan,
-    0 0 25px cyan, 0 0 50px cyan,
-    0 0 100px cyan, 0 0 200px cyan
+    box-shadow: 0 0 15px cyan,
+    0 0 15px cyan, 0 0 10px cyan,
+    0 0 10px cyan, 0 0 10px cyan
 }
 .about{
     display: grid;
@@ -401,16 +401,23 @@ body{
     resize: none;
     height: 220px;
 }
-.contact-form form .send{
+.btn-box1{
     display: inline-block;
-    padding: 14px 60px;
+    padding: 12px 40px;
     background: #0ef;
     border-radius: 40px;
-    font-size: 18px;
+    font-size: 16px;
     color: black;
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 600;
+    margin-left: 68%;
+
+}
+.btn-box1:hover{
+    box-shadow: 0 0 15px cyan,
+    0 0 15px cyan, 0 0 10px cyan,
+    0 0 10px cyan, 0 0 10px cyan
 }
 .contact-form form .send:hover{
     box-shadow: 0 0 10px cyan,
