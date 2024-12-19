@@ -13,12 +13,28 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10%;
+    padding: 20px;
     background: transparent;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     z-index: 100;
     background-color: #081b29;
+}
+.button{
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0ef;
+    border-radius: 20px;
+    font-size: 10px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 800;
+}
+.button:hover{
+    box-shadow: 0 0 15px cyan,
+    0 0 15px cyan, 0 0 10px cyan,
+    0 0 10px cyan, 0 0 10px cyan
 }
 .logo{
     position: relative;
