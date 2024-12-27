@@ -1,0 +1,80 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #081b29;
+}
+
+.login-form {
+    background-color: #121212;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ffff;
+    text-align: center;
+    width: 300px;
+}
+
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.login-form input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ffff;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    background-color: #00ffff;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: #00d4d4;
+}
+
+.login-form a {
+    color: #00ffff;
+    text-decoration: none;
+    display: block;
+    margin-top: 15px;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+.remember-me {
+    color: #ffffff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.remember-me input {
+    width: auto;
+}
