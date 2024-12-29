@@ -24,7 +24,7 @@ const register = async () => {
     })
 
     const result = response.json()
-    if (result) {
+    if (response.ok) {
         alert("create register successful!");
         document.getElementById('firstname').value = ''
         document.getElementById('lastname').value = ''
@@ -32,6 +32,9 @@ const register = async () => {
         document.getElementById('password').value = ''
         document.getElementById('confirmPass').value = ''
         window.location.href = '../login/index.html'
+    } else {
+        console.log(response.message);
+
     }
 }
 
