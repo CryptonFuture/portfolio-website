@@ -33,7 +33,7 @@ const register = async () => {
         document.getElementById('confirmPass').value = ''
         window.location.href = '../login/index.html'
     } else {
-        console.log(response.message);
+        console.log(result.message);
 
     }
 }

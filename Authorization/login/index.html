@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="style.css" />
+        <script src="login.js"></script>
+
   </head>
   <body>
     <div class="login-form">
       <h2>Login</h2>
-      <form>
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required />
+        <input id="email" type="email" placeholder="Email" required />
+        <input id="password" type="password" placeholder="Password" required />
         <div class="remember-me">
           <input type="checkbox" id="remember" />
           <label for="remember">Remember me</label>
         </div>
-        <button type="submit">Login</button>
+        <button onclick="login()" type="submit">Login</button>
         <a href="/Authorization/sign up/index.html"
           >Don't have an account? Sign Up</a
         >
-      </form>
     </div>
   </body>
 </html>
