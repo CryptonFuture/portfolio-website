@@ -78,3 +78,10 @@ body {
 .remember-me input {
     width: auto;
 }
+.dropdown {
+    width: 107%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
