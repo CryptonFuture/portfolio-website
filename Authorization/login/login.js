@@ -36,6 +36,9 @@ const login = async () => {
     const data = await res.json()
     if (res.ok) {
         showSnackbar(data.message, "success");
+        localStorage.setItem('accessToken', data.accessToken)
+        localStorage.setItem('email', data.data.email)
+        localStorage.setItem('password', data.data.password)
     
     } else {
         showSnackbar(data.error, "error");
