@@ -9,7 +9,7 @@ function showSnackbar(message, type = "success") {
 
     setTimeout(() => {
         snackbar.className = "hide";
-        window.location.href = '../login/index.html'
+        // window.location.href = '../login/index.html'
         setTimeout(() => {
             snackbar.className = "";
         }, 500);
