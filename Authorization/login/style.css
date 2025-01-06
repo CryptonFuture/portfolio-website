@@ -78,3 +78,35 @@ body {
 .remember-me input {
     width: auto;
 }
+
+ #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    bottom: 30px;
+    font-size: 17px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(20px);
+  }
+
+  #snackbar.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #snackbar.hide {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
