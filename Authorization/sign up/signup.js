@@ -23,6 +23,54 @@ const register = async () => {
     const password = document.getElementById('password').value
     const confirmPass = document.getElementById('confirmPass').value
 
+    document.getElementById('firstNameError').textContent = '';
+    document.getElementById('lastNameError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
+    document.getElementById('confirmPassError').textContent = '';
+
+    let isValid = true;
+    if (!firstname) {
+        document.getElementById('firstNameError').textContent = 'First Name is required.';
+        isValid = false;
+    }
+
+    if (!lastname) {
+        document.getElementById('lastNameError').textContent = 'Last Name is required.';
+        isValid = false;
+    }
+
+    if (!email) {
+        document.getElementById('emailError').textContent = 'Email is required.';
+        isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        isValid = false;
+    }
+
+    if (!password) {
+        document.getElementById('passwordError').textContent = 'Password is required.';
+        isValid = false;
+    } else if (password.length < 10) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 10 characters';
+        isValid = false;
+    }
+
+    if (!confirmPass) {
+        document.getElementById('confirmPassError').textContent = 'confirmPass is required.';
+        isValid = false;
+    } else if (password !== confirmPass) {
+        document.getElementById('confirmPassError').textContent = "password does'nt match";
+        isValid = false;
+    } else if (confirmPass.length < 10) {
+        document.getElementById('passwordError').textContent = 'confirm Password must be at least 10 characters';
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
     const res = await fetch(`${baseUrl}/v1/api/auth/register`, {
         method: 'POST',
         headers: {
@@ -47,7 +95,7 @@ const register = async () => {
         document.getElementById('email').value = ''
         document.getElementById('password').value = ''
         document.getElementById('confirmPass').value = ''
-        
+
     } else {
         showSnackbar(data.error, "error");
 
