@@ -22,6 +22,11 @@ body {
     color: #ffffff;
 }
 
+.error-message {
+    color: red;
+    text-align: left !important;
+}
+
 .login-form input {
     width: 100%;
     padding: 10px;

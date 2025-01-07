@@ -12,11 +12,14 @@
     <div class="login-form">
       <h2>Login</h2>
       <input id="email" type="email" placeholder="Email" required />
-      <input id="password" type="password" placeholder="Password" required />
+      <span id="emailError" class="error-message"></span>
+      <input id="password" type="password" placeholder="Password" minlength="10" required />
+      <span id="passwordError" class="error-message"></span>
       <div class="remember-me">
         <input type="checkbox" id="rememberMe" />
         <label for="remember">Remember me</label>
       </div>
+      <div id="serverError" class="error-message"></div>
       <button onclick="login()" type="submit">Login</button>
       <a href="/Authorization/sign up/index.html"
         >Don't have an account? Sign Up</a

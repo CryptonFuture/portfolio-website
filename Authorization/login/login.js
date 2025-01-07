@@ -10,11 +10,13 @@ function showSnackbar(message, type = "success") {
 
     setTimeout(() => {
         snackbar.className = "hide";
-        window.location.href = '../../index.html'
+
         setTimeout(() => {
             snackbar.className = "";
+
         }, 500);
     }, 3000);
+
 }
 
 window.onload = () => {
@@ -34,6 +36,31 @@ const login = async () => {
     const password = document.getElementById('password').value
     const rememberMe = document.getElementById('rememberMe').checked
 
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
+
+    let isValid = true;
+    if (!email) {
+        document.getElementById('emailError').textContent = 'Email is required.';
+        isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        isValid = false;
+    }
+
+    if (!password) {
+        document.getElementById('passwordError').textContent = 'Password is required.';
+        isValid = false;
+    } else if (password.length < 10) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 10 characters';
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
+
     const res = await fetch(`${baseUrl}/v1/api/auth/login`, {
         method: 'POST',
         headers: {
@@ -49,19 +76,20 @@ const login = async () => {
     const data = await res.json()
     if (res.ok) {
         showSnackbar(data.message, "success");
-        localStorage.setItem('accessToken', data.accessToken)
-      if(rememberMe) {
-          const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
-          localStorage.setItem('email', data.data.email)
-          localStorage.setItem('password', encryptedPassword)
-          localStorage.setItem('rememberMe', 'true')
+        localStorage.setItem('accessToken', data.accessToen)
+        window.location.href = '../../index.html'
+        if (rememberMe) {
+            const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
+            localStorage.setItem('email', data.data.email)
+            localStorage.setItem('password', encryptedPassword)
+            localStorage.setItem('rememberMe', 'true')
 
-      } else {
-          localStorage.removeItem('email')
-          localStorage.removeItem('password')
-          localStorage.removeItem('rememberMe')
-      }
-    
+        } else {
+            localStorage.removeItem('email')
+            localStorage.removeItem('password')
+            localStorage.removeItem('rememberMe')
+        }
+
     } else {
         showSnackbar(data.error, "error");
     }

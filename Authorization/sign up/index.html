@@ -10,20 +10,42 @@
   <body>
     <div class="login-form">
       <h2>Sign Up</h2>
-        <input id="firstname" type="text" placeholder="First Name" required />
-        <input id="lastname" type="text" placeholder="Last Name" required />
-        <input id="email" type="email" placeholder="Email" required />
-        <input id="password" type="password" placeholder="Password" required />
-        <input id="confirmPass" type="password" placeholder=" Confirm Password" required />
-        <div class="remember-me">
-          <input type="checkbox" id="rememberMe" />
-          <label for="remember">I accept all terms & conditions</label>
-        </div>
-        <button onclick="register()" type="submit">Sign Up</button>
-        <a href="/Authorization/login/index.html"
-          >Already have an account? login now</a
-        >
+      <input id="firstname" type="text" placeholder="First Name" required />
+      <span id="firstNameError" class="error-message"></span>
+
+      <input id="lastname" type="text" placeholder="Last Name" required />
+      <span id="lastNameError" class="error-message"></span>
+
+      <input id="email" type="email" placeholder="Email" required />
+      <span id="emailError" class="error-message"></span>
+
+      <input
+        id="password"
+        type="password"
+        minlength="10"
+        placeholder="Password"
+        required
+      />
+      <span id="passwordError" class="error-message"></span>
+
+      <input
+        id="confirmPass"
+        type="password"
+        minlength="10"
+        placeholder=" Confirm Password"
+        required
+      />
+      <span id="confirmPassError" class="error-message"></span>
+
+      <div class="remember-me">
+        <input type="checkbox" id="rememberMe" />
+        <label for="remember">I accept all terms & conditions</label>
+      </div>
+      <button onclick="register()" type="submit">Sign Up</button>
+      <a href="/Authorization/login/index.html"
+        >Already have an account? login now</a
+      >
     </div>
-     <div id="snackbar"></div>
+    <div id="snackbar"></div>
   </body>
 </html>
