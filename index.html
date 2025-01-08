@@ -255,20 +255,25 @@
       </div>
       <div class="contact-form">
         <div class="form">
-          <input type="text" id="name" placeholder="Enter Your Name" required />
+          <input type="text" id="name" placeholder="Enter Your Name" required /><br />
+          <span id="nameError" class="error-message"></span>
+
           <input
             type="text"
             id="contact_no"
             placeholder="Enter Your Contact NO"
             required
-          />
+          /><br />
+          <span id="contactNoError" class="error-message"></span>
 
           <input
             id="email"
             type="email"
             placeholder="Enter Your Email"
             required
-          />
+          /><br />
+          <span id="emailError" class="error-message"></span>
+
           <textarea
             name=""
             id="subject"
@@ -276,7 +281,9 @@
             rows="10"
             placeholder="Enter Your Object"
             required
-          ></textarea>
+          ></textarea><br />
+          <span id="subjectError" class="error-message"></span>
+
           <button class="btn-box1" id="submit" onclick="addContact()">
             Submit
           </button>

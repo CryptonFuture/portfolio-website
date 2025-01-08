@@ -24,6 +24,39 @@ const addContact = async () => {
     const email = document.getElementById('email').value
     const subject = document.getElementById('subject').value
 
+    document.getElementById('nameError').textContent = '';
+    document.getElementById('contactNoError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('subjectError').textContent = '';
+
+    let isValid = true;
+    if (!name) {
+        document.getElementById('nameError').textContent = 'Name is required.';
+        isValid = false;
+    }
+
+    if (!contact_no) {
+        document.getElementById('contactNoError').textContent = 'contact No is required.';
+        isValid = false;
+    }
+
+    if (!email) {
+        document.getElementById('emailError').textContent = 'Email is required.';
+        isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        isValid = false;
+    }
+
+    if (!subject) {
+        document.getElementById('subjectError').textContent = 'subject is required.';
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
     const res = await fetch(`${baseUrl}/v1/api/contact/contactUs`, {
         method: 'POST',
         headers: {

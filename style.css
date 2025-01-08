@@ -90,6 +90,12 @@ body{
 .home-content p{
     font-size: 20px;
 }
+
+.error-message {
+    color: red;
+    text-align: left !important;
+}
+
 .home-sci a{
     display: inline-flex;
     justify-content: center;
