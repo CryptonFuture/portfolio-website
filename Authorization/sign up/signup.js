@@ -22,12 +22,14 @@ const register = async () => {
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
     const confirmPass = document.getElementById('confirmPass').value
+    const profileImage = document.getElementById('profileImage').files[0]
 
     document.getElementById('firstNameError').textContent = '';
     document.getElementById('lastNameError').textContent = '';
     document.getElementById('emailError').textContent = '';
     document.getElementById('passwordError').textContent = '';
     document.getElementById('confirmPassError').textContent = '';
+    document.getElementById('imageError').textContent = '';
 
     let isValid = true;
     if (!firstname) {
@@ -67,24 +69,27 @@ const register = async () => {
         isValid = false;
     }
 
+    if (!profileImage) {
+        document.getElementById('imageError').textContent = 'Please upload a profile image.';
+        isValid = false;
+    }
+
     if (!isValid) {
         return;
     }
 
+    const formData = new FormData()
+
+    formData.append('firstname', firstname)
+    formData.append('lastname', lastname)
+    formData.append('email', email)
+    formData.append('password', password)
+    formData.append('confirmPass', confirmPass)
+    formData.append('profileImage', profileImage)
+
     const res = await fetch(`${baseUrl}/v1/api/auth/register`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            firstname,
-            lastname,
-            email,
-            password,
-            confirmPass
-
-        })
+        body: formData
     })
 
     const data = await res.json()
