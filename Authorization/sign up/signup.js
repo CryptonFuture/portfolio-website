@@ -29,7 +29,6 @@ const register = async () => {
     document.getElementById('emailError').textContent = '';
     document.getElementById('passwordError').textContent = '';
     document.getElementById('confirmPassError').textContent = '';
-    document.getElementById('imageError').textContent = '';
 
     let isValid = true;
     if (!firstname) {
@@ -66,11 +65,6 @@ const register = async () => {
         isValid = false;
     } else if (confirmPass.length < 10) {
         document.getElementById('passwordError').textContent = 'confirm Password must be at least 10 characters';
-        isValid = false;
-    }
-
-    if (!profileImage) {
-        document.getElementById('imageError').textContent = 'Please upload a profile image.';
         isValid = false;
     }
 
