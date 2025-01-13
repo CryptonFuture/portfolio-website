@@ -16,6 +16,29 @@ function showSnackbar(message, type = "success") {
     }, 3000);
 }
 
+const previewImage = async (event) => {
+    const file = event.target.files[0]
+    const preview = document.getElementById('preview')
+    const imgPreview = document.getElementById('imagePreview')
+
+    if(file) {
+        const reader = new FileReader()
+
+        reader.onload = function(e) {
+            preview.src = e.target.result
+            preview.style.display = 'block'
+        }
+
+        reader.readAsDataURL(file)
+    } else {
+        imgPreview.src = ''
+        preview.style.display = 'none';
+    }
+
+}
+
+
+
 const register = async () => {
     const firstname = document.getElementById('firstname').value
     const lastname = document.getElementById('lastname').value
@@ -89,6 +112,7 @@ const register = async () => {
     const data = await res.json()
     if (res.ok) {
         showSnackbar(data.message, "success");
+        document.getElementById('preview').style.display = 'none'
         document.getElementById('firstname').value = ''
         document.getElementById('lastname').value = ''
         document.getElementById('email').value = ''
