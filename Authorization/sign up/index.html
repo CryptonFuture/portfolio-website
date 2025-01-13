@@ -41,7 +41,12 @@
         id="profileImage"
         type="file"
         required
+         onchange="previewImage(event)"
       />
+
+      <div id="imagePreview">
+        <img id="preview" src="" alt="Image Preview" style="display: none; max-width: 100px; max-height: 100px;" />
+      </div>
 
       <div class="remember-me">
         <input type="checkbox" id="rememberMe" />
