@@ -100,7 +100,8 @@ const register = async () => {
         document.getElementById('email').value = ''
         document.getElementById('password').value = ''
         document.getElementById('confirmPass').value = ''
-
+        document.getElementById('profileImage').value = '';
+        
     } else {
         showSnackbar(data.error, "error");
 
