@@ -10,10 +10,20 @@
   </head>
   <body>
     <div class="login-form">
-      <h2>Login</h2>
+      <h2 class="arrow">
+        <a href="/index.html"
+          ><img src="/assets/arrow_001-removebg-preview.png" alt="" /></a
+        ><span>Login</span>
+      </h2>
       <input id="email" type="email" placeholder="Email" required />
       <span id="emailError" class="error-message"></span>
-      <input id="password" type="password" placeholder="Password" minlength="10" required />
+      <input
+        id="password"
+        type="password"
+        placeholder="Password"
+        minlength="10"
+        required
+      />
       <span id="passwordError" class="error-message"></span>
       <div class="remember-me">
         <input type="checkbox" id="rememberMe" />
