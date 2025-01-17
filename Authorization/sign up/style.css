@@ -114,4 +114,8 @@ body {
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
   }
-
+  .arrow img {
+    height: 30px;
+    width: 50px;
+    margin-right: 90%;
+  }
