@@ -63,7 +63,7 @@ const login = async () => {
 
 
     const res = await fetch(`${baseUrl}/v1/api/auth/login`, {
-        method: 'POST', 
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -75,10 +75,16 @@ const login = async () => {
     })
 
     const data = await res.json()
+
     if (res.ok) {
         showSnackbar(data.message, "success");
-        localStorage.setItem('accessToken', data.accessToen)
-        window.location.href = '../../index.html'
+        localStorage.setItem('accessToken', data.accessToken)
+        localStorage.setItem('firstname', data.data.firstname)
+        localStorage.setItem('lastname', data.data.lastname)
+        localStorage.setItem('email', data.data.email)
+        localStorage.setItem('profileImage', data.data.profileImage)
+
+        window.location.href = '../../Panel/panel.html'
         if (rememberMe) {
             const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
             localStorage.setItem('email', data.data.email)
