@@ -1,5 +1,11 @@
 const baseUrl = 'http://localhost:8000'
 
+const accessToken = localStorage.getItem('accessToken')
+
+if (accessToken) {
+    window.location.href = '../../Panel/panel.html';
+}
+
 function showSnackbar(message, type = "success") {
     const snackbar = document.getElementById("snackbar");
     snackbar.textContent = message;
