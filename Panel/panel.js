@@ -48,12 +48,16 @@ profileImageElement.alt = `${fullname}'s Profile Image`
 
 // DROPDOWN
 function showDropdown(dropdown) {
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+    const isVisible = dropdownContent.style.display === 'block';
+
     document.querySelectorAll('.dropdown-content').forEach(content => {
         content.style.display = 'none';
     });
 
-    const dropdownContent = dropdown.querySelector('.dropdown-content');
-    dropdownContent.style.display = 'block';
+    if (!isVisible) {
+        dropdownContent.style.display = 'block';
+    }
 }
 
 document.onclick = function (event) {
