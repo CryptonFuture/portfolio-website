@@ -75,7 +75,8 @@ const login = async () => {
     })
 
     const data = await res.json()
-
+    console.log(data);
+    
     if (res.ok) {
         showSnackbar(data.message, "success");
         localStorage.setItem('accessToken', data.accessToken)
