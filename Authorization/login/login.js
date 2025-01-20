@@ -1,6 +1,12 @@
 const baseUrl = 'http://localhost:8000'
 const secretKey = "0192384756";
 
+const accessToken = localStorage.getItem('accessToken')
+
+if (accessToken) {
+    window.location.href = '../../Panel/panel.html';
+}
+
 function showSnackbar(message, type = "success") {
     const snackbar = document.getElementById("snackbar");
     snackbar.textContent = message;
@@ -10,6 +16,7 @@ function showSnackbar(message, type = "success") {
 
     setTimeout(() => {
         snackbar.className = "hide";
+        window.location.href = '../../Panel/panel.html'
 
         setTimeout(() => {
             snackbar.className = "";
@@ -75,17 +82,16 @@ const login = async () => {
     })
 
     const data = await res.json()
-    console.log(data);
-    
+
     if (res.ok) {
         showSnackbar(data.message, "success");
         localStorage.setItem('accessToken', data.accessToken)
+        localStorage.setItem('userId', data.data._id)
         localStorage.setItem('firstname', data.data.firstname)
         localStorage.setItem('lastname', data.data.lastname)
         localStorage.setItem('email', data.data.email)
         localStorage.setItem('profileImage', data.data.profileImage)
 
-        window.location.href = '../../Panel/panel.html'
         if (rememberMe) {
             const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
             localStorage.setItem('email', data.data.email)
