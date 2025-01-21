@@ -16,7 +16,7 @@ function showSnackbar(message, type = "success") {
 
     setTimeout(() => {
         snackbar.className = "hide";
-        window.location.href = '../../Panel/panel.html'
+
 
         setTimeout(() => {
             snackbar.className = "";
@@ -91,6 +91,7 @@ const login = async () => {
         localStorage.setItem('lastname', data.data.lastname)
         localStorage.setItem('email', data.data.email)
         localStorage.setItem('profileImage', data.data.profileImage)
+        localStorage.setItem('role', data.data.role)
 
         if (rememberMe) {
             const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
@@ -102,6 +103,28 @@ const login = async () => {
             localStorage.removeItem('email')
             localStorage.removeItem('password')
             localStorage.removeItem('rememberMe')
+        }
+
+        if (data.data.role === 0) {
+            setTimeout(() => {
+                window.location.href = '../../Panel/panel.html'
+            }, 3000);
+        } else if (data.data.role === 1) {
+            setTimeout(() => {
+                window.location.href = '../../Panel/panel.html'
+            }, 3000);
+        } else if (data.data.role === 2) {
+            setTimeout(() => {
+                window.location.href = '../../Panel/panel.html'
+            }, 3000);
+        } else if (data.data.role === 3) {
+            setTimeout(() => {
+                window.location.href = '../../Panel/panel.html'
+            }, 3000);
+        } else {
+            setTimeout(() => {
+                window.location.href = '../../Panel/panel.html'
+            }, 3000);
         }
 
     } else {
