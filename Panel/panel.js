@@ -97,4 +97,20 @@ const logout = async () => {
 
 }
 
+// SIDEBAR ROUTES
+const sidebar = async () => {
+    const role = localStorage.getItem('role')
+
+    const links = document.querySelectorAll('.sidebar a');
+    links.forEach(link => {
+        const allowedRoles = link.dataset.role.split(' ');
+        if (!allowedRoles.includes(role)) {
+            link.style.display = 'none';
+        }
+    });
+
+}
+
+window.addEventListener('DOMContentLoaded', sidebar)
+
 
