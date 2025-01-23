@@ -123,12 +123,33 @@ const login = async () => {
             }, 3000);
         } else {
             setTimeout(() => {
-                window.location.href = '../../Panel/panel.html'
+                window.location.href = '../../index.html'
             }, 3000);
         }
 
     } else {
         showSnackbar(data.error, "error");
+    }
+}
+
+
+// SHOW AND HIDE PASSWORD AND CONFIRM PASSWORD
+
+const showAndHidePassword = () => {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+const showAndHideConfirmPassword = () => {
+    var x = document.getElementById("confirmPass");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
     }
 }
 

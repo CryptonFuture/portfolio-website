@@ -8,6 +8,7 @@ body {
     background-color: #081b29;
 }
 
+
 .login-form {
     background-color: #121212;
     padding: 30px;
@@ -15,6 +16,7 @@ body {
     box-shadow: 0 0 10px #00ffff;
     text-align: center;
     width: 300px;
+
 }
 
 .login-form h2 {
@@ -51,11 +53,6 @@ body {
     margin-top: 10px;
 }
 
-.error-message {
-    color: red;
-    text-align: left !important;
-}
-
 .login-form button:hover {
     background-color: #00d4d4;
 }
@@ -77,7 +74,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 10px;
+   
 }
 
 .remember-me input {
@@ -119,3 +116,22 @@ body {
     width: 50px;
     margin-right: 90%;
   }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+  }
+
+button {
+  margin-left: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 14px;
+}
+
+button:hover {
+  text-decoration: underline;
+}
+
