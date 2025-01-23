@@ -115,7 +115,7 @@ body {
     transition: opacity 0.5s, transform 0.5s;
   }
   .arrow img {
-    height: 30px;
-    width: 50px;
+    height: 20px;
+    width: 30px;
     margin-right: 90%;
   }
