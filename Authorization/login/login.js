@@ -123,7 +123,7 @@ const login = async () => {
             }, 3000);
         } else {
             setTimeout(() => {
-                window.location.href = '../../Panel/panel.html'
+                window.location.href = '../../index.html'
             }, 3000);
         }
 
