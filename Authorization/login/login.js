@@ -133,5 +133,26 @@ const login = async () => {
 }
 
 
+// SHOW AND HIDE PASSWORD AND CONFIRM PASSWORD
+
+const showAndHidePassword = () => {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+const showAndHideConfirmPassword = () => {
+    var x = document.getElementById("confirmPass");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+
 
 
