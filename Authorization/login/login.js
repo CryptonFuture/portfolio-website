@@ -144,15 +144,3 @@ const showAndHidePassword = () => {
     }
 }
 
-const showAndHideConfirmPassword = () => {
-    var x = document.getElementById("confirmPass");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
-
-
-
-
