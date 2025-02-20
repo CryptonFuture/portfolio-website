@@ -82,6 +82,7 @@ const logout = async () => {
         showSnackbar(data.message, "success");
 
         localStorage.removeItem('accessToken')
+        localStorage.removeItem('refreshToken');
         localStorage.removeItem('userId')
         localStorage.removeItem('firstname')
         localStorage.removeItem('lastname')
@@ -112,5 +113,68 @@ const sidebar = async () => {
 }
 
 window.addEventListener('DOMContentLoaded', sidebar)
+
+const refreshAccessToken = async () => {
+    const refreshToken = localStorage.getItem('refreshToken');
+
+    if (!refreshToken) {
+        logout();
+        return null;
+    }
+
+    try {
+        const res = await fetch(`${baseUrl}/v1/api/auth/refresh`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ refreshToken })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+            localStorage.setItem('accessToken', data.accessToken);
+            return data.accessToken;
+        } else {
+            logout();
+            return null;
+        }
+    } catch (error) {
+        console.error("Error refreshing token", error);
+        logout();
+        return null;
+    }
+};
+
+const fetchWithAuth = async (url, options = {}) => {
+    let accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+        logout();
+        return null;
+    }
+
+    if (!options.headers) {
+        options.headers = {};
+    }
+
+    options.headers['Authorization'] = `Bearer ${accessToken}`;
+
+    let res = await fetch(url, options);
+
+    if (res.status === 401) {
+        const newAccessToken = await refreshAccessToken();
+
+        if (!newAccessToken) return null;
+
+        options.headers['Authorization'] = `Bearer ${newAccessToken}`;
+        res = await fetch(url, options);
+    }
+
+    return res.json();
+};
+
+
 
 
