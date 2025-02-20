@@ -86,6 +86,7 @@ const login = async () => {
     if (res.ok) {
         showSnackbar(data.message, "success");
         localStorage.setItem('accessToken', data.accessToken)
+        localStorage.setItem('refreshToken', data.refreshToken);
         localStorage.setItem('userId', data.data._id)
         localStorage.setItem('firstname', data.data.firstname)
         localStorage.setItem('lastname', data.data.lastname)
